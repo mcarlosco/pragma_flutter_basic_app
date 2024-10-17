@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pragma_flutter_basic_app/src/data/models/urgency.dart';
 
 import '../widgets/our_card.dart';
 
@@ -24,6 +25,7 @@ final class JobsView extends StatelessWidget {
                     job.countries.map((country) => country.name).join(' • '),
                 buttonText: 'Ver detalles',
                 onButtonPressed: () {},
+                headlineBolded: job.urgency == Urgency.urgent,
               ),
             )
             .toList());
