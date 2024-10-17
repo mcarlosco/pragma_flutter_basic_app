@@ -6,6 +6,7 @@ final class OurCard extends StatelessWidget {
   final String? supportingText;
   final String? buttonText;
   final VoidCallback? onButtonPressed;
+  final bool headlineBolded;
 
   const OurCard.outlined({
     super.key,
@@ -14,6 +15,7 @@ final class OurCard extends StatelessWidget {
     this.supportingText,
     this.buttonText,
     this.onButtonPressed,
+    this.headlineBolded = false,
   });
 
   bool get _hasButton => buttonText != null && onButtonPressed != null;
@@ -32,7 +34,10 @@ final class OurCard extends StatelessWidget {
             if (headline != null)
               Text(
                 headline!,
-                style: textTheme.titleLarge,
+                style: headlineBolded
+                    ? textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.bold)
+                    : textTheme.titleLarge,
               ),
             if (subhead != null)
               Padding(
