@@ -1,6 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  GoogleFonts.config.allowRuntimeFetching = false;
+
+  LicenseRegistry.addLicense(() async* {
+    yield LicenseEntryWithLineBreaks(['google_fonts'],
+        await rootBundle.loadString('assets/fonts/Poppins/OFL.txt'));
+  });
+
   runApp(const MyApp());
 }
 
@@ -30,6 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
