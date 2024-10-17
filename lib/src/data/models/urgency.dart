@@ -1,0 +1,1 @@
+enum Urgency { normal, urgent }
