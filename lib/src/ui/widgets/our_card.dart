@@ -35,8 +35,10 @@ final class OurCard extends StatelessWidget {
               Text(
                 headline!,
                 style: headlineBolded
-                    ? textTheme.titleLarge
-                        ?.copyWith(fontWeight: FontWeight.bold)
+                    ? textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: .25,
+                      )
                     : textTheme.titleLarge,
               ),
             if (subhead != null)
