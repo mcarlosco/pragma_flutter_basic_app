@@ -21,8 +21,7 @@ final class JobsView extends StatelessWidget {
               (job) => OurCard.outlined(
                 headline: job.title,
                 subhead: job.team.name,
-                supportingText:
-                    job.countries.map((country) => country.name).join(' • '),
+                supportingText: job.formattedCountries,
                 buttonText: 'Ver detalles',
                 onButtonPressed: () {},
                 headlineBolded: job.urgency == Urgency.urgent,

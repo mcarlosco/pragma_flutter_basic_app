@@ -1,6 +1,6 @@
-import './team.dart';
-import './country.dart';
-import './urgency.dart';
+import 'team.dart';
+import 'country.dart';
+import 'urgency.dart';
 
 final class Job {
   final String title;
@@ -14,4 +14,7 @@ final class Job {
     required this.countries,
     required this.urgency,
   });
+
+  String get formattedCountries =>
+      countries.map((country) => country.name).join(' • ');
 }
