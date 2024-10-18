@@ -19,7 +19,7 @@ final class OurScreen extends StatelessWidget {
         title: title,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: child,
       ),
     );

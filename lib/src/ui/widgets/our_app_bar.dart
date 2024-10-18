@@ -23,6 +23,9 @@ final class OurAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       backgroundColor: colorScheme.primary,
+      iconTheme: IconThemeData(
+        color: colorScheme.inversePrimary,
+      ),
     );
   }
 }

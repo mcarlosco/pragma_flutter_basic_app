@@ -25,7 +25,7 @@ final class OurCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Card.outlined(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
