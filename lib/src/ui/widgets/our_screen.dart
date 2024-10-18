@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './our_app_bar.dart';
+import 'our_app_bar.dart';
 
 final class OurScreen extends StatelessWidget {
   final String title;
@@ -15,8 +15,8 @@ final class OurScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const OurAppBar(
-        title: 'Vacantes',
+      appBar: OurAppBar(
+        title: title,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
