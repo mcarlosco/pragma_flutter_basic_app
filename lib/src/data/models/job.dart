@@ -17,4 +17,6 @@ final class Job {
 
   String get formattedCountries =>
       countries.map((country) => country.name).join(' • ');
+
+  bool get isUrgent => urgency == Urgency.urgent;
 }
