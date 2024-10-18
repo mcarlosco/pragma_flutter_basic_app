@@ -7,12 +7,14 @@ final class Job {
   final Team team;
   final Set<Country> countries;
   final Urgency urgency;
+  final String description;
 
   const Job({
     required this.title,
     required this.team,
     required this.countries,
     required this.urgency,
+    required this.description,
   });
 
   String get formattedCountries =>
