@@ -9,20 +9,24 @@ final class CountriesRepository {
           flag: '🇨🇴',
         ),
         Country(
-          name: 'Perú',
-          flag: '🇵🇪',
-        ),
-        Country(
-          name: 'Panamá',
-          flag: '🇵🇦',
-        ),
-        Country(
           name: 'Guatemala',
           flag: '🇬🇹',
         ),
         Country(
           name: 'México',
           flag: '🇲🇽',
+        ),
+        Country(
+          name: 'Panamá',
+          flag: '🇵🇦',
+        ),
+        Country(
+          name: 'Perú',
+          flag: '🇵🇪',
+        ),
+        Country(
+          name: 'USA',
+          flag: '🇺🇸',
         ),
       };
 }
