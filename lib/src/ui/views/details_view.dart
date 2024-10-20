@@ -39,7 +39,7 @@ final class DetailsView extends StatelessWidget {
                 .map((country) => Padding(
                       padding: const EdgeInsets.only(bottom: 2.5),
                       child: Text(
-                        '${country.flag} ${country.name}',
+                        country.compoundName,
                         style: textTheme.bodySmall,
                       ),
                     ))
