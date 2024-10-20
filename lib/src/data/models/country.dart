@@ -6,4 +6,6 @@ final class Country {
     required this.name,
     required this.flag,
   });
+
+  String get compoundName => '$flag $name';
 }
