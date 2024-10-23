@@ -2,7 +2,7 @@ import 'team.dart';
 import 'country.dart';
 import 'urgency.dart';
 
-final class Job {
+final class Job implements Comparable {
   final String title;
   final Team team;
   final String description;
@@ -18,4 +18,7 @@ final class Job {
   });
 
   bool get isUrgent => urgency == Urgency.urgent;
+
+  @override
+  int compareTo(other) => other is Job && other.isUrgent ? 1 : -1;
 }

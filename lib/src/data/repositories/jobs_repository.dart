@@ -3,6 +3,20 @@ import '../models.dart';
 final class JobsRepository {
   static final _jobs = <Job>[
     const Job(
+      title: 'Desarrollador Java',
+      team: Team(name: 'Computer Science'),
+      description:
+          'Queremos conocer personas apasionadas por mejorar la vida de la gente. Buscamos '
+          'un desarrollador Java con ganas de construir soluciones creativas para miles de '
+          'usuarios en América latina y el mundo.',
+      countries: {
+        Country(name: 'Colombia', flag: '🇨🇴'),
+        Country(name: 'Panamá', flag: '🇵🇦'),
+        Country(name: 'Perú', flag: '🇵🇪'),
+      },
+      urgency: Urgency.normal,
+    ),
+    const Job(
       title: 'Desarrollador Flutter',
       team: Team(name: 'Computer Science'),
       description:
@@ -17,25 +31,22 @@ final class JobsRepository {
       },
       urgency: Urgency.urgent,
     ),
-    const Job(
-      title: 'Desarrollador Java',
-      team: Team(name: 'Computer Science'),
-      description:
-          'Queremos conocer personas apasionadas por mejorar la vida de la gente. Buscamos '
-          'un desarrollador Java con ganas de construir soluciones creativas para miles de '
-          'usuarios en América latina y el mundo.',
-      countries: {
-        Country(name: 'Colombia', flag: '🇨🇴'),
-        Country(name: 'Panamá', flag: '🇵🇦'),
-        Country(name: 'Perú', flag: '🇵🇪'),
-      },
-      urgency: Urgency.normal,
-    ),
   ];
+
+  static var _sorted = false;
+
+  static void _sort() {
+    _jobs.sort((j, k) => j.compareTo(k));
+    _sorted = true;
+  }
 
   const JobsRepository();
 
-  List<Job> get() {
+  List<Job> get([sorted = true]) {
+    if (sorted && !_sorted) {
+      _sort();
+    }
+
     return List.unmodifiable(_jobs);
   }
 
@@ -47,9 +58,12 @@ final class JobsRepository {
     } else {
       _jobs[index] = job;
     }
+
+    _sorted = false;
   }
 
   void delete(Job job) {
     _jobs.removeWhere((j) => j.title == job.title);
+    _sorted = false;
   }
 }
