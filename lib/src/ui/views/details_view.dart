@@ -6,7 +6,7 @@ import '../widgets.dart';
 final class DetailsView extends StatelessWidget {
   final Job job;
 
-  final void Function(Job job) onDeleted;
+  final VoidCallback onDeleted;
 
   const DetailsView(
     this.job, {
@@ -61,8 +61,8 @@ final class DetailsView extends StatelessWidget {
         const OurSpacer.x2(),
         const Text(
           'Cultura que mueve. Estarás rodeado de una comunidad de altos estándares, '
-          'compañeros dignos de admirar, vivirás una cultura de autogestión, y '
-          'estarás acompañado de líderes que inspiran y son buena compañía.',
+          'compañeros dignos de admirar, vivirás una cultura de autogestión, y estarás'
+          'acompañado de líderes que inspiran y son buena compañía.',
         ),
         const OurSpacer.x2(),
         const Text(
@@ -76,7 +76,7 @@ final class DetailsView extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: TextButton(
-            onPressed: () {},
+            onPressed: onDeleted,
             child: const Text(
               'Eliminar vacante',
               style: TextStyle(
