@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../data/models.dart';
@@ -30,30 +32,36 @@ final class _DetailsScreenState extends State<DetailsScreen> {
     return OurScreen(
       title: 'Detalles',
       primaryActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context)
-              .pushNamed(formScreenPath, arguments: _job)
-              .then((job) {
-            setState(() {
-              if (job is Job) {
-                _j = job;
-              }
-            });
-          });
-        },
+        onPressed: _onEditButtonPressed,
         child: const Icon(Icons.edit),
       ),
       child: DetailsView(
         _job,
-        onDeleted: () {
-          widget._jobsRepository.delete(_job);
-          Navigator.of(context).pop<void>();
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Vacante eliminada')),
-          );
-        },
+        onDeleted: _onDeleted,
       ),
+    );
+  }
+
+  void _onEditButtonPressed() {
+    unawaited(
+      Navigator.of(context)
+          .pushNamed(formScreenPath, arguments: _job)
+          .then<void>((job) {
+        setState(() {
+          if (job is Job) {
+            _j = job;
+          }
+        });
+      }),
+    );
+  }
+
+  void _onDeleted() {
+    widget._jobsRepository.delete(_job);
+    Navigator.of(context).pop<void>();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Vacante eliminada')),
     );
   }
 }
