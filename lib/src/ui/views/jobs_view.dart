@@ -19,7 +19,7 @@ final class JobsView extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
-        Image.asset('assets/images/our_happy_team.webp'),
+        const OurImage.asset('assets/images/our_happy_team.webp'),
         const OurSpacer.x2(),
         const Text(
           'Es Pragma. Es buena compañía.',

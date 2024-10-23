@@ -74,7 +74,7 @@ final class DetailsView extends StatelessWidget {
               'sus estudios.',
             ),
             const OurSpacer.x3(),
-            Image.asset('assets/images/work_with_us.webp'),
+            const OurImage.asset('assets/images/work_with_us.webp'),
             const OurSpacer.x1(),
             Align(
               alignment: Alignment.center,
