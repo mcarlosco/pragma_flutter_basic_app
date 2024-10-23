@@ -27,15 +27,19 @@ final class FormScreen extends StatelessWidget {
         teams: _teamsRepository.get(),
         countries: _countriesRepository.get(),
         onSaved: (job) {
-          _jobsRepository.save(job);
-          Navigator.of(context).pop(job);
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Vacante guardada')),
-          );
+          _onSaved(context, job);
         },
         job: job,
       ),
+    );
+  }
+
+  void _onSaved(BuildContext context, Job job) {
+    _jobsRepository.save(job);
+    Navigator.of(context).pop(job);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Vacante guardada')),
     );
   }
 }

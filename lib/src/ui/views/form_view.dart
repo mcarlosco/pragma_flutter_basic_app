@@ -122,7 +122,9 @@ final class _FormViewState extends State<FormView> {
               const OurSpacer.x3(),
               const Text('Urgencia'),
               SwitchListTile(
-                title: Text(_urgent ? '😱 ¡Como pa\' ayer!' : 'Como pa\' hoy'),
+                title: _urgent
+                    ? const Text('😱 ¡Como pa\' ayer!')
+                    : const Text('Como pa\' hoy'),
                 value: _urgent,
                 onChanged: (checked) {
                   setState(() {
@@ -136,36 +138,12 @@ final class _FormViewState extends State<FormView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FilledButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-
-                        final job = Job(
-                          title: _title!,
-                          team: _team!,
-                          description: _description!,
-                          countries: (_countrySelection
-                                ..removeWhere((_, selected) => !selected))
-                              .keys
-                              .toSet(),
-                          urgency: Urgency.from(_urgent),
-                        );
-
-                        widget.onSaved(job);
-                      }
-                    },
+                    onPressed: _onSaveButtonPressed,
                     child: const Text('Guardar'),
                   ),
                   if (!widget.hasJob)
                     OutlinedButton(
-                      onPressed: () {
-                        _formKey.currentState!.reset();
-
-                        setState(() {
-                          _countrySelection.updateAll((_, __) => false);
-                          _urgent = false;
-                        });
-                      },
+                      onPressed: _onCleanButtonPressed,
                       child: const Text('Limpiar'),
                     ),
                 ],
@@ -175,5 +153,32 @@ final class _FormViewState extends State<FormView> {
         ),
       ),
     );
+  }
+
+  void _onSaveButtonPressed() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+
+      final job = Job(
+        title: _title!,
+        team: _team!,
+        description: _description!,
+        countries: (_countrySelection..removeWhere((_, selected) => !selected))
+            .keys
+            .toSet(),
+        urgency: Urgency.from(_urgent),
+      );
+
+      widget.onSaved(job);
+    }
+  }
+
+  void _onCleanButtonPressed() {
+    _formKey.currentState!.reset();
+
+    setState(() {
+      _countrySelection.updateAll((_, __) => false);
+      _urgent = false;
+    });
   }
 }
