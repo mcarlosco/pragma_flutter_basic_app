@@ -48,6 +48,10 @@ final class _DetailsScreenState extends State<DetailsScreen> {
         onDeleted: () {
           widget._jobsRepository.delete(_job);
           Navigator.of(context).pop<void>();
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Vacante eliminada')),
+          );
         },
       ),
     );

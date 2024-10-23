@@ -29,6 +29,10 @@ final class FormScreen extends StatelessWidget {
         onSaved: (job) {
           _jobsRepository.save(job);
           Navigator.of(context).pop(job);
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Vacante guardada')),
+          );
         },
         job: job,
       ),
