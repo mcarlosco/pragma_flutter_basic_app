@@ -26,6 +26,7 @@ final class OurCard extends StatelessWidget {
 
     return Card.outlined(
       margin: const EdgeInsets.symmetric(vertical: 10),
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
