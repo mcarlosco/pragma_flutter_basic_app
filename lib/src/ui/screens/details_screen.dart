@@ -6,7 +6,7 @@ import '../views.dart';
 import '../widgets.dart';
 import 'paths.dart';
 
-final class DetailsScreen extends StatelessWidget {
+final class DetailsScreen extends StatefulWidget {
   final Job job;
 
   final JobsRepository _jobsRepository;
@@ -17,28 +17,38 @@ final class DetailsScreen extends StatelessWidget {
   }) : _jobsRepository = const JobsRepository();
 
   @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+final class _DetailsScreenState extends State<DetailsScreen> {
+  Job? _j;
+
+  Job get _job => _j ?? widget.job;
+
+  @override
   Widget build(BuildContext context) {
     return OurScreen(
       title: 'Detalles',
       primaryActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .pushNamed<Job>(
-                formScreenPath,
-                arguments: job,
-              )
-              .then((_) {});
+              .pushNamed(formScreenPath, arguments: _job)
+              .then((job) {
+            setState(() {
+              if (job is Job) {
+                _j = job;
+              }
+            });
+          });
         },
         child: const Icon(Icons.edit),
       ),
-      child: SingleChildScrollView(
-        child: DetailsView(
-          job,
-          onDeleted: () {
-            _jobsRepository.delete(job);
-            Navigator.of(context).pop<void>();
-          },
-        ),
+      child: DetailsView(
+        _job,
+        onDeleted: () {
+          widget._jobsRepository.delete(_job);
+          Navigator.of(context).pop<void>();
+        },
       ),
     );
   }

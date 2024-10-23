@@ -20,10 +20,7 @@ final class OurScreen extends StatelessWidget {
       appBar: OurAppBar(
         title: title,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: child,
-      ),
+      body: child,
       floatingActionButton: primaryActionButton,
     );
   }

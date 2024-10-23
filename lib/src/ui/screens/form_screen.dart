@@ -23,16 +23,14 @@ final class FormScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OurScreen(
       title: 'Vacante',
-      child: SingleChildScrollView(
-        child: FormView(
-          teams: _teamsRepository.get(),
-          countries: _countriesRepository.get(),
-          onSaved: (job) {
-            _jobsRepository.save(job);
-            Navigator.of(context).pop(job);
-          },
-          job: job,
-        ),
+      child: FormView(
+        teams: _teamsRepository.get(),
+        countries: _countriesRepository.get(),
+        onSaved: (job) {
+          _jobsRepository.save(job);
+          Navigator.of(context).pop(job);
+        },
+        job: job,
       ),
     );
   }

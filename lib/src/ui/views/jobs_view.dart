@@ -17,7 +17,15 @@ final class JobsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.all(20),
       children: [
+        Image.asset('assets/images/our_happy_team.webp'),
+        const OurSpacer.x2(),
+        const Text(
+          'Es Pragma. Es buena compañía.',
+          textAlign: TextAlign.center,
+        ),
+        const OurSpacer.x2(),
         for (final job in jobs)
           OurCard.outlined(
             headline: job.title,

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../data/repositories.dart';
@@ -7,11 +5,16 @@ import '../views.dart';
 import '../widgets.dart';
 import 'paths.dart';
 
-final class JobsScreen extends StatelessWidget {
+final class JobsScreen extends StatefulWidget {
   final JobsRepository _jobsRepository;
 
   const JobsScreen({super.key}) : _jobsRepository = const JobsRepository();
 
+  @override
+  State<JobsScreen> createState() => _JobsScreenState();
+}
+
+class _JobsScreenState extends State<JobsScreen> {
   @override
   Widget build(BuildContext context) {
     return OurScreen(
@@ -19,16 +22,19 @@ final class JobsScreen extends StatelessWidget {
       primaryActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          unawaited(Navigator.of(context).pushNamed<void>(formScreenPath));
+          Navigator.of(context).pushNamed(formScreenPath).then((_) {
+            setState(() {});
+          });
         },
       ),
       child: JobsView(
-        _jobsRepository.get(),
+        widget._jobsRepository.get(),
         onOpened: (job) {
-          unawaited(Navigator.of(context).pushNamed<void>(
-            detailsScreenPath,
-            arguments: job,
-          ));
+          Navigator.of(context)
+              .pushNamed(detailsScreenPath, arguments: job)
+              .then((_) {
+            setState(() {});
+          });
         },
       ),
     );

@@ -53,117 +53,126 @@ final class _FormViewState extends State<FormView> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-            initialValue: _title,
-            decoration: const InputDecoration(
-              label: Text('Título*'),
-            ),
-            readOnly: widget.hasJob,
-            maxLength: 50,
-            validator: validateNonEmpty,
-            onSaved: (title) {
-              _title = title;
-            },
-          ),
-          DropdownButtonFormField(
-            value: _team,
-            decoration: const InputDecoration(
-              label: Text('Equipo*'),
-            ),
-            items: widget.teams
-                .map((team) => DropdownMenuItem<Team>(
-                      value: team,
-                      child: Text(team.name),
-                    ))
-                .toList(),
-            validator: validateNonNull,
-            onChanged: (_) {},
-            onSaved: (team) {
-              _team = team;
-            },
-          ),
-          const OurSpacer.x4(),
-          TextFormField(
-            initialValue: _description,
-            decoration: const InputDecoration(
-              label: Text('Descripción*'),
-            ),
-            maxLines: 3,
-            maxLength: 500,
-            keyboardType: TextInputType.text,
-            validator: validateNonEmpty,
-            onSaved: (description) {
-              _description = description;
-            },
-          ),
-          const OurSpacer.x1(),
-          const Text('Países'),
-          for (final country in widget.countries)
-            CheckboxListTile(
-              title: Text(_countrySelection[country]!
-                  ? country.compoundName
-                  : country.name),
-              value: _countrySelection[country],
-              onChanged: (checked) {
-                setState(() {
-                  _countrySelection[country] = checked!;
-                });
-              },
-            ),
-          const Divider(),
-          const OurSpacer.x3(),
-          const Text('Urgencia'),
-          SwitchListTile(
-            title: Text(_urgent ? '¡Como pa\' ayer!' : 'Como pa\' hoy'),
-            value: _urgent,
-            onChanged: (checked) {
-              setState(() {
-                _urgent = checked;
-              });
-            },
-          ),
-          const Divider(),
-          const OurSpacer.x2(),
-          if (!widget.hasJob)
-            FilledButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFormField(
+                initialValue: _title,
+                decoration: const InputDecoration(
+                  label: Text('Título*'),
+                ),
+                readOnly: widget.hasJob,
+                maxLength: 50,
+                validator: validateNonEmpty,
+                onSaved: (title) {
+                  _title = title;
+                },
+              ),
+              DropdownButtonFormField(
+                value: _team,
+                decoration: const InputDecoration(
+                  label: Text('Equipo*'),
+                ),
+                items: widget.teams
+                    .map((team) => DropdownMenuItem<Team>(
+                          value: team,
+                          child: Text(team.name),
+                        ))
+                    .toList(),
+                validator: validateNonNull,
+                onChanged: (_) {},
+                onSaved: (team) {
+                  _team = team;
+                },
+              ),
+              const OurSpacer.x4(),
+              TextFormField(
+                initialValue: _description,
+                decoration: const InputDecoration(
+                  label: Text('Descripción*'),
+                ),
+                maxLines: 3,
+                maxLength: 500,
+                keyboardType: TextInputType.text,
+                validator: validateNonEmpty,
+                onSaved: (description) {
+                  _description = description;
+                },
+              ),
+              const OurSpacer.x1(),
+              const Text('Países'),
+              for (final country in widget.countries)
+                CheckboxListTile(
+                  title: Text(_countrySelection[country]!
+                      ? country.compoundName
+                      : country.name),
+                  value: _countrySelection[country],
+                  onChanged: (checked) {
+                    setState(() {
+                      _countrySelection[country] = checked!;
+                    });
+                  },
+                ),
+              const Divider(),
+              const OurSpacer.x3(),
+              const Text('Urgencia'),
+              SwitchListTile(
+                title: Text(_urgent ? '😱 ¡Como pa\' ayer!' : 'Como pa\' hoy'),
+                value: _urgent,
+                onChanged: (checked) {
+                  setState(() {
+                    _urgent = checked;
+                  });
+                },
+              ),
+              const Divider(),
+              const OurSpacer.x2(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FilledButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
 
-                  final job = Job(
-                    title: _title!,
-                    team: _team!,
-                    description: _description!,
-                    countries: (_countrySelection
-                          ..removeWhere((_, selected) => !selected))
-                        .keys
-                        .toSet(),
-                    urgency: Urgency.from(_urgent),
-                  );
+                        final job = Job(
+                          title: _title!,
+                          team: _team!,
+                          description: _description!,
+                          countries: (_countrySelection
+                                ..removeWhere((_, selected) => !selected))
+                              .keys
+                              .toSet(),
+                          urgency: Urgency.from(_urgent),
+                        );
 
-                  widget.onSaved(job);
-                }
-              },
-              child: const Text('Guardar'),
-            )
-          else
-            OutlinedButton(
-              onPressed: () {
-                _formKey.currentState!.reset();
+                        widget.onSaved(job);
+                      }
+                    },
+                    child: const Text('Guardar'),
+                  ),
+                  if (!widget.hasJob)
+                    OutlinedButton(
+                      onPressed: () {
+                        _formKey.currentState!.reset();
 
-                setState(() {
-                  _countrySelection.updateAll((_, __) => false);
-                  _urgent = false;
-                });
-              },
-              child: const Text('Limpiar'),
-            ),
-        ],
+                        setState(() {
+                          _countrySelection.updateAll((_, __) => false);
+                          _urgent = false;
+                        });
+                      },
+                      child: const Text('Limpiar'),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
