@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
+import '../../data/models.dart';
 import '../../data/repositories.dart';
 import '../views.dart';
 import '../widgets.dart';
@@ -14,29 +17,33 @@ final class JobsScreen extends StatefulWidget {
   State<JobsScreen> createState() => _JobsScreenState();
 }
 
-class _JobsScreenState extends State<JobsScreen> {
+final class _JobsScreenState extends State<JobsScreen> {
   @override
   Widget build(BuildContext context) {
     return OurScreen(
       title: 'Vacantes',
       primaryActionButton: FloatingActionButton(
+        onPressed: _onAddButtonPressed,
         child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).pushNamed(formScreenPath).then((_) {
-            setState(() {});
-          });
-        },
       ),
       child: JobsView(
         widget._jobsRepository.get(),
-        onOpened: (job) {
-          Navigator.of(context)
-              .pushNamed(detailsScreenPath, arguments: job)
-              .then((_) {
-            setState(() {});
-          });
-        },
+        onCardOpened: _onCardOpened,
       ),
     );
+  }
+
+  void _onAddButtonPressed() {
+    unawaited(Navigator.of(context).pushNamed(formScreenPath).then<void>((_) {
+      setState(() {});
+    }));
+  }
+
+  void _onCardOpened(Job job) {
+    unawaited(Navigator.of(context)
+        .pushNamed(detailsScreenPath, arguments: job)
+        .then<void>((_) {
+      setState(() {});
+    }));
   }
 }

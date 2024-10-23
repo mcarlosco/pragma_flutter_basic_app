@@ -6,12 +6,12 @@ import '../widgets.dart';
 final class JobsView extends StatelessWidget {
   final List<Job> jobs;
 
-  final void Function(Job job) onOpened;
+  final void Function(Job job) onCardOpened;
 
   const JobsView(
     this.jobs, {
     super.key,
-    required this.onOpened,
+    required this.onCardOpened,
   });
 
   @override
@@ -34,7 +34,7 @@ final class JobsView extends StatelessWidget {
                 job.countries.map((country) => country.name).join(' • '),
             buttonText: 'Ver detalles',
             onButtonPressed: () {
-              onOpened(job);
+              onCardOpened(job);
             },
             headlineBolded: job.isUrgent,
           ),
