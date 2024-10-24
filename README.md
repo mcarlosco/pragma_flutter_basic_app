@@ -40,7 +40,7 @@ Crea o actualiza una vacante.
 
 - 🍦 ¡Tanta _vanilla_ como sea posible!
 - 😶‍🌫️ Almacenamiento temporal de datos (RAM).
-- 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
+- 🫡 Distribución de responsabilidades entre `Widgets` (`Screen`s vs. `View`s).
 
 ## Consideraciones no técnicas
 
