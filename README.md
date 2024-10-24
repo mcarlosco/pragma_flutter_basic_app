@@ -34,14 +34,25 @@ Amplía la información de una vacante al mostrar su descripción.
 
 Crea o actualiza una vacante.
 
-### Consideraciones técnicas
+## Consideraciones técnicas
 
 - 🍦 Tanto _vanilla_ como fuere posible.
 - 😶‍🌫️ Almacenamiento temporal de datos (RAM).
 - 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
 
-### Consideraciones no técnicas
+## Consideraciones no técnicas
 
 - 🛞 No reinventar la rueda: construir sobre lo construído.
 - 🧮 Menos es más: menos complejidad, más practicidad.
 - 💜 Pragmático de corazón.
+
+## Acerca de
+
+- ✅ Flutter (Channel stable, 3.24.3, on macOS 13.7 22H123 darwin-arm64, locale en-US)
+- ✅ Android toolchain - develop for Android devices (Android SDK version 33.0.2)
+- ✅ Xcode - develop for iOS and macOS (Xcode 15.2)
+- ✅ Chrome - develop for the web
+- ✅ Android Studio (version 2022.3)
+- ✅ VS Code (version 1.94.2)
+- ✅ Connected device (4 available)
+- ✅ Network resources
