@@ -1,6 +1,6 @@
 # Basic App — Pragma × Flutter
 
-Aplicación desarrollada con Flutter e inspirada en la [página de empleo](https://www.pragma.co/es/carrera/vacantes/) del sitio web de Pragma.
+Aplicación desarrollada con [Flutter](https://flutter.dev/) e inspirada en la [página de empleo](https://www.pragma.co/es/carrera/vacantes/) del sitio web de [Pragma](https://www.pragma.co/).
 
 <img src="https://github.com/user-attachments/assets/b2c8ae0d-23e8-4347-a68f-67db7797de4f" width="250">
 <img src="https://github.com/user-attachments/assets/c4413133-2094-4ed9-8648-d518aa2a207a" width="250">
