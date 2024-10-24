@@ -16,7 +16,7 @@ En la página de empleo, se listan ordenadamente tarjetas que muestran vacantes.
 
 ## Diseño visual
 
-[Material 3](https://m3.material.io/) fue el sistema de diseño elegido e implementado, por su sencillez y robustez. Además el esquema de colores se definió a partir del color predominante de marca: `ARGB(1, 100, 40, 205)`. Incluso la elección de botones y maquetación se basó fundamentalmente en este Sistema de Diseño.
+[Material 3](https://m3.material.io/) fue el sistema de diseño elegido e implementado, por su sencillez y robustez. Además el esquema de colores se definió a partir del color predominante de marca: `ARGB(1, 100, 40, 205)`. Incluso la elección de botones y maquetación se basó fundamentalmente en este Sistema de Diseño, excepto la tipografía, que fue elección personal.
 
 ## Diseño funcional
 
