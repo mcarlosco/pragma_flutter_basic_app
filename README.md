@@ -30,7 +30,7 @@ Lista ordenadamente tarjetas que muestran vacantes. Cada tarjeta contiene un res
 
 Amplía la información de una vacante al mostrar su descripción.
 
-### Vacante
+### Vacante (Form)
 
 Crea o actualiza una vacante.
 
