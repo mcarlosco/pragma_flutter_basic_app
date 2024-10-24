@@ -39,3 +39,9 @@ Crea o actualiza una vacante.
 - 🍦 Tanto _vanilla_ como fuere posible.
 - 😶‍🌫️ Almacenamiento temporal de datos (RAM).
 - 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
+
+### Consideraciones no técnicas
+
+- 🛞 No reinventar la rueda: construir sobre lo construído.
+- 🧮 Menos es más: menos complejidad, más practicidad.
+- 💜 Pragmático de corazón.
