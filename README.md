@@ -22,7 +22,7 @@ En la página de empleo, se listan ordenadamente tarjetas que muestran vacantes.
 
 La aplicación consta de tres pantallas.
 
-[Demo](https://github.com/user-attachments/assets/065e9d01-2c13-4db6-b53b-b3f929a9ff1e)
+[📀 Demo](https://github.com/user-attachments/assets/065e9d01-2c13-4db6-b53b-b3f929a9ff1e)
 
 ### Vacantes
 
