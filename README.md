@@ -38,7 +38,7 @@ Crea o actualiza una vacante.
 
 ## Consideraciones técnicas
 
-- 🍦 ¡Tanto _vanilla_ como fuere posible!
+- 🍦 ¡Tanta _vanilla_ como sea posible!
 - 😶‍🌫️ Almacenamiento temporal de datos (RAM).
 - 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
 
