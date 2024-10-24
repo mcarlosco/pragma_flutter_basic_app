@@ -7,7 +7,7 @@ Aplicación desarrollada con Flutter e inspirada en la [página de empleo](https
 
 > Este repositorio es personal y resuelve la Fase 2 de la Ruta de Crecimiento Práctica del Chapter Mobile.
 
-## Motivación
+## Inspiración
 
 En la página de empleo, se listan ordenadamente tarjetas que muestran vacantes. Cada tarjeta contiene un resumen, que consta de título, equipo y países; además, dos botones: uno para compartir la vacante en redes sociales y otro para ver los detalles de la vacante.
 
@@ -16,7 +16,7 @@ En la página de empleo, se listan ordenadamente tarjetas que muestran vacantes.
 
 ## Diseño visual
 
-[Material 3](https://m3.material.io/) fue el sistema de diseño elegido e implementado, por su sencillez y robustez. Además el esquema de colores se definió a partir del color predominante de marca de Pragma: `ARGB(1, 100, 40, 205)`. Incluso la elección de botones y maquetación se basó fundamentalmente en este Sistema de Diseño.
+[Material 3](https://m3.material.io/) fue el sistema de diseño elegido e implementado, por su sencillez y robustez. Además el esquema de colores se definió a partir del color predominante de marca: `ARGB(1, 100, 40, 205)`. Incluso la elección de botones y maquetación se basó fundamentalmente en este Sistema de Diseño.
 
 ## Diseño funcional
 
@@ -36,17 +36,17 @@ Crea o actualiza una vacante.
 
 ## Consideraciones técnicas
 
-- 🍦 Tanto _vanilla_ como fuere posible.
+- 🍦 ¡Tanto _vanilla_ como fuere posible!
 - 😶‍🌫️ Almacenamiento temporal de datos (RAM).
 - 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
 
 ## Consideraciones no técnicas
 
-- 🛞 No reinventar la rueda: construir sobre lo construído.
+- 🛞 No reinventar la rueda: construir sobre lo construido.
 - 🧮 Menos es más: menos complejidad, más practicidad.
 - 💜 Pragmático de corazón.
 
-## Acerca de
+## Doctor de confianza
 
 - ✅ Flutter (Channel stable, 3.24.3, on macOS 13.7 22H123 darwin-arm64, locale en-US)
 - ✅ Android toolchain - develop for Android devices (Android SDK version 33.0.2)
@@ -56,3 +56,7 @@ Crea o actualiza una vacante.
 - ✅ VS Code (version 1.94.2)
 - ✅ Connected device (4 available)
 - ✅ Network resources
+
+## Acerca de
+
+Asistí a la FlutterConf Latam el año pasado y tengo un pin de Dash con un sombrero vueltiao puesto... 😎
