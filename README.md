@@ -22,6 +22,8 @@ En la página de empleo, se listan ordenadamente tarjetas que muestran vacantes.
 
 La aplicación consta de tres pantallas.
 
+https://github.com/user-attachments/assets/065e9d01-2c13-4db6-b53b-b3f929a9ff1e
+
 ### Vacantes
 
 Lista ordenadamente tarjetas que muestran vacantes. Cada tarjeta contiene un resumen, que consta de título, equipo y países; además, solo un botón, para ver los detalles de la vacante. El ordenamiento de las vacantes se obtiene comparando la urgencia de cada vacante, para posicionar primeramente aquellas que sean urgentes. Esta urgencia se puede evidenciar en que el título de la vacante en la tarjeta resalta más.
