@@ -33,3 +33,9 @@ Amplía la información de una vacante al mostrar su descripción.
 ### Vacante
 
 Crea o actualiza una vacante.
+
+### Consideraciones técnicas
+
+- 🍦 Tanto _vanilla_ como fuere posible.
+- 😶‍🌫️ Almacenamiento temporal de datos (RAM).
+- 🫡 Distribución de responsabilidades en `Widgets` (`Screen`s vs. `View`s).
